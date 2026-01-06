@@ -5,5 +5,12 @@ services:
     build: .
     container_name: qr_generator_1984
     restart: unless-stopped
+    labels:
+      - homepage.enable=true
+      - homepage.group=Data
+      - homepage.name=1984Qr code generator
+      - homepage.icon=sh-mini-qr
+      - homepage.href=http://192.168.100.20:5000
+      - homepage.description=Gerar qr codes estaticos
     ports:
       - "5000:5000"
