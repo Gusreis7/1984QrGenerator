@@ -1,0 +1,19 @@
+FROM python:3.12-slim
+
+# Evita cache e bytecode
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+
+WORKDIR /app
+
+# Dependências mínimas
+RUN pip install --no-cache-dir flask qrcode[pil]
+
+# Copia a aplicação
+COPY app.py .
+COPY templates ./templates
+
+EXPOSE 5000
+
+# Sem CLI, roda direto
+CMD ["python", "app.py"]

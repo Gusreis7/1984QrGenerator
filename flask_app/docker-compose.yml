@@ -1,0 +1,9 @@
+version: "3.9"
+
+services:
+  qr-generator:
+    build: .
+    container_name: qr_generator_1984
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
