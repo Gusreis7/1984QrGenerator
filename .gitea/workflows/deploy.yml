@@ -1,0 +1,20 @@
+name: Deploy selfhost
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+  
+      - name: Deploy 1984 qr generator app
+        run: |
+          chmod +x ./scripts/deploy_1984qr_generator.sh
+          ./scripts/deploy_1984qr_generator.sh
