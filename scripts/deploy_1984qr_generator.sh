@@ -20,7 +20,6 @@ elif echo "$COMMIT_MSG" | grep -qiE '\b(reset-db|wipe)\b'; then
   docker compose down -v
   docker compose up -d --build
 
-
 else
   echo "Deploy rápido"
   docker compose restart || {
