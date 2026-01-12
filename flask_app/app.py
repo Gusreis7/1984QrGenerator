@@ -24,5 +24,21 @@ def generate_qr():
     return send_file(buffer, mimetype="image/png")
 
 
+@app.route("/health", methods=["GET"])
+def check_health():
+    return {"status": "ok"}, 200
+
+
+@app.route("/health/qr", methods=["GET"])
+def check_qr():
+    try:
+        img = qrcode.make("eu sou o milhor")
+        buffer = io.BytesIO()
+        img.save(buffer, format="PNG")
+        return "", 204
+    except:
+        return "", 500
+
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
