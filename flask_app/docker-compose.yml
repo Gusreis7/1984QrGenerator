@@ -7,7 +7,7 @@ services:
     restart: unless-stopped
     labels:
       - homepage.enable=true
-      - homepage.group=Data
+      - homepage.group=Apps
       - homepage.name=1984Qr code generator
       - homepage.icon=sh-mini-qr
       - homepage.href=http://192.168.100.20:5000
