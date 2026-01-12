@@ -15,17 +15,17 @@ echo "$COMMIT_MSG"
 echo "-----------------------------------"
 
 if echo "$COMMIT_MSG" | grep -qi '\[REBUILD\]'; then
-  echo "🔄 REBUILD detectado"
+  echo "REBUILD detectado"
   docker compose down
   docker compose up -d --build
 
 elif echo "$COMMIT_MSG" | grep -qi '\[RESET\]'; then
-  echo "💥 RESET TOTAL detectado (inclui volumes)"
+  echo "RESET TOTAL detectado (inclui volumes)"
   docker compose down -v
   docker compose up -d --build
 
 else
-  echo "⚡ Deploy rápido (restart)"
+  echo "Deploy rápido (restart)"
   docker compose restart || {
     echo "Containers não existem ainda, subindo stack"
     docker compose up -d
