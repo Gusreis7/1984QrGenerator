@@ -8,7 +8,6 @@ echo "Atualizando serviço: $BASE_DIR/$dir"
 cd "$BASE_DIR/$dir"
 
 COMMIT_MSG="$(git log -1 --pretty=%B)"
-
 echo "Deploy em: $BASE_DIR"
 echo "Commit:"
 echo "$COMMIT_MSG"
